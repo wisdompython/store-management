@@ -1,96 +1,64 @@
+# 🛒 Simple E-commerce API
 
-# Welcome!
+Welcome to the **Simple E-commerce API** project! This API serves as an inventory management system for a basic e-commerce platform, allowing users to register, authenticate, manage products, and place orders.
 
-Hi! this your determinant test for the position of Django backend developer at **PayBox360**.  If you have any issues, you can read this docs or also contact Lolu for further clarification.
+## 🚀 Project Overview
 
+This project demonstrates my proficiency in building scalable backend systems using Django and Django REST Framework. It showcases key functionalities including user authentication, product management, and order processing, all integrated with a PostgreSQL database and deployed on a cloud server.
 
-##  Overview
-
-For this exercise you will be cover some basic concepts of web development and production ready deployment  and you will hence be tested in the following basic concepts.
-
-- Django and Django query-sets
-- PostgreSQL Setup and connection to Django
-- Cloud deployment
-- PEP guidelines, conformity and quality of code 
-- General understanding of the python programming language.
-
-## Test Rundown
-
-You will be required to fork this repository into your personal account and then carry out few operations of extending functionality of the application and then make a pull request with your branch name to the main branch as you progress.
-
-## Test Guide
-
-After completing stage the process in in the rundown, please create branch for your self, please make sure to name the the branch with the following convention **\<yourname>/update**, and also all commits to your branch should carry a message in the following format **\<ACTIVITY>[Activity details]**.
-
-- A sample branch name would be **paul/update**, and., 
-- A sample commit message would be **FIX[ADDED CORS CONTROL]**
-
-## Task Description
-
-You are required to extend a skeleton application and build it into an inventory management system to such that it can provide the abilities below:
+### Key Technologies & Tools:
+- **Django & Django REST Framework**: Backend framework
+- **PostgreSQL**: Database for data management
+- **JWT Authentication**: Secure user authentication
 
 
-**Project: Simple E-commerce API**
+---
 
-**Requirements:**
-1. **User Management:**
-   - Implement user registration and login with JWT authentication.
-   
-2. **Product Management:**
-   - Create models for Product and Category.
-   - Implement CRUD operations for products (create, read, update, delete).
+## 📋 Features
 
-3. **Order Management:**
-   - Create an Order model.
-   - Allow users to place orders with multiple products.
-   - Implement a basic order history endpoint for users.
+### 1. **User Management**
+- **User Registration**: New users can register and create an account.
+- **User Login**: Registered users can log in with JWT authentication.
+  
+### 2. **Product Management**
+- **Category & Product Models**: Create and manage categories and products.
+- **CRUD Operations**: Create, retrieve, update, and delete products.
+  
+### 3. **Order Management**
+- **Order Creation**: Users can place orders with multiple products.
+- **Order History**: Retrieve past orders for authenticated users.
 
-**Detailed Instructions:**
+### 4. **Other Features**
+- **Search**: Search for products based on name and category.
+- **Pagination**: Paginate product listings for efficient browsing.
 
-1. **Setup:**
-   - Create a new Django project.
-   - Configure the project with Django REST Framework.
-   - Make sure to use PostgreSQL
-
-2. **User Authentication:**
-   - Use Django's built-in User model.
-   - Implement registration and login endpoints using JWT for authentication.
-
-3. **Product and Category Models:**
-   - Create models with appropriate fields (e.g., name, description, price for Product; name for Category).
-   - Establish relationships (e.g., a product belongs to a category).
-   - Implement endpoints for managing products (list, detail, create, update, delete).
-
-4. **Order Model:**
-   - Create an Order model with fields like user (ForeignKey), product (ManyToManyField), quantity, and date.
-   - Implement an endpoint for placing orders.
-   - Create an endpoint to retrieve the order history for the authenticated user.
-
-5. **Testing:**
-   - Write unit tests for each endpoint.
-
-**Evaluation Criteria:**
-- Correctness: The implementation should meet the requirements.
-- Code Quality: Clean, readable, and maintainable code.
-- Use of Django Best Practices: Proper use of Django features and conventions.
-- Testing: Quality and coverage of unit tests.
-
-**Bonus:**
-- Implement search functionality for products.
-- Add pagination to product listing.
+---
 
 
-## Resources for task
+## 🔐 Endpoints
 
-**Finally**
-You will be provided with a virtual machine IP address hosted on Digital Ocean please host your project appropriately using NGINX,  GUNICORN and POSTGRESQL (as database). A password for the droplet will be provided.
+### **Authentication**
+- **POST** `/api/register/` - Register a new user
+- **POST** `/api/login/` - Login and obtain a JWT token
 
-- Please add your postman link to the above created endpoints for review.
-- Also note that you can ignore the Docker and CI/CD instantiations on the application.
+### **Products**
+- **GET** `/api/products/` - List all products (supports search and pagination)
+- **POST** `/api/products/` - Create a new product (Admin only)
+- **PUT** `/api/products/<id>/` - Update product details (Admin only)
+- **DELETE** `/api/products/<id>/` - Delete a product (Admin only)
 
-### Good luck, as we look forward to working with you at Liberty Assured in building amazing projects and relationships.
+### **Orders**
+- **POST** `/api/orders/` - Place a new order
+- **GET** `/api/orders/history/` - Get order history for the authenticated user
 
+---
 
-## POSTMAN DOCUMENTATION
+## 🧪 Testing
 
-**Here is the link to the postman collection : [click here](https://documenter.getpostman.com/view/21778720/2sA3kXFgfo)**
+To run the test suite:
+
+```bash
+python manage.py test
+```
+
+This includes unit tests for all critical endpoints to ensure system reliability.
